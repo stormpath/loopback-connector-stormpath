@@ -1,0 +1,38 @@
+{
+  "name": "loopback-connector-mongodb",
+  "version": "1.8.0",
+  "description": "LoopBack MongoDB Connector",
+  "keywords": [
+    "StrongLoop",
+    "LoopBack",
+    "MongoDB",
+    "DataSource",
+    "Connector"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "loopback-connector": "1.x",
+    "mongodb": "^2.0.13",
+    "async": "^0.9.0",
+    "debug": "^2.1.1"
+  },
+  "devDependencies": {
+    "bluebird": "^2.9.12",
+    "loopback-datasource-juggler": "^2.15.0",
+    "mocha": "^2.1.0",
+    "rc": "^0.6.0",
+    "semver": "^4.2.0",
+    "should": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strongloop/loopback-connector-mongodb"
+  },
+  "license": {
+    "name": "Dual MIT/StrongLoop",
+    "url": "https://github.com/strongloop/loopback-connector-mongodb/blob/master/LICENSE"
+  }
+}
