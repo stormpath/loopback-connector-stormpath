@@ -1,1 +1,1 @@
-module.exports = require('./lib/mongodb');
+module.exports = require('./lib/stormpath');
