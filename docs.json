@@ -1,8 +1,10 @@
 {
-"content": [
-    {"title": "LoopBack MongoDB Connector API", "depth": 2},
-    "lib/mongodb.js"
+  "content": [
+    {
+      "title": "LoopBack Stormpath Connector API",
+      "depth": 2
+    },
+    "lib/stormpath.js"
   ],
   "codeSectionDepth": 3
 }
-
