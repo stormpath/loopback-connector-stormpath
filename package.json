@@ -1,11 +1,11 @@
 {
-  "name": "loopback-connector-mongodb",
+  "name": "loopback-connector-stormpath",
   "version": "1.8.0",
-  "description": "LoopBack MongoDB Connector",
+  "description": "LoopBack Stormpath Connector",
   "keywords": [
     "StrongLoop",
     "LoopBack",
-    "MongoDB",
+    "Stormpath",
     "DataSource",
     "Connector"
   ],
@@ -30,10 +30,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/strongloop/loopback-connector-mongodb"
-  },
-  "license": {
-    "name": "Dual MIT/StrongLoop",
-    "url": "https://github.com/strongloop/loopback-connector-mongodb/blob/master/LICENSE"
+    "url": "https://github.com/stormpath/loopback-connector-stormpath"
   }
 }
