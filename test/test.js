@@ -232,14 +232,27 @@ describe('Stormpath', function() {
         done();
       });
     });
+  });
 
-    it('should return a user object', function(done) {
+  describe('#save', function() {
+    it('should save all modified attributes', function(done) {
       User.create(user, function(err, obj) {
         if (err) return done(err);
 
-        assert.equal(obj.email, user.email);
-        done();
-      });
+        obj.givenName = 'Woot';
+        obj.surname = 'Woot';
+        obj.email = 'woot@stormpath.com';
+
+        obj.save(function(err, updatedUser) {
+          if (err) return done(err);
+
+          assert.equal(updatedUser.givenName, user.givenName);
+          assert.equal(updatedUser.surname, user.surname);
+          assert.equal(updatedUser.email, user.email);
+
+          done();
+        });
+      })
     });
   });
 });
