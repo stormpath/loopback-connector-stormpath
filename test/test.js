@@ -279,5 +279,16 @@ describe('Stormpath', function() {
         assert.false(exists);
       });
     });
+
+    it('should return true if the user exists', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        User.exists(User, { id: obj.id }, function(err, exists) {
+          if (err) return done(err);
+          assert.true(exists);
+        });
+      });
+    });
   });
 });
