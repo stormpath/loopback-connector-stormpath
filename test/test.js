@@ -92,6 +92,12 @@ describe('Stormpath', function() {
 
   var client;
   var application;
+  var user = {
+    givenName: 'Randall',
+    surname: 'Degges',
+    email: 'randall@stormpath.com',
+    password: 'woot!ILOVEc00kies'
+  };
 
   // Bootstrap our test suite.  This is run only once, and handles basic setup:
   // creating a Stormpath Application, etc.
@@ -197,19 +203,43 @@ describe('Stormpath', function() {
     });
   })
 
-  describe('#create', function() {
-    it('should create a user account given a givenName, surname, email and password', function(done) {
-      var user = {
-        givenName: 'Randall',
-        surname: 'Degges',
-        email: 'randall@stormpath.com',
-        password: 'woot!ILOVEc00kies'
-      };
+  // Remove all newly created Accounts after each test has been run.  This
+  // ensures we don't get naming collisions.
+  afterEach(function(done) {
+    application.getAccounts(function(err, accounts) {
+      if (err) return done(err);
 
-      User.create(user, function(err, obj) {
+      accounts.each(function(account, callback) {
+        account.delete(function(err) {
+          if (err) return callback(err);
+          callback();
+        });
+      }, function(err) {
         if (err) return done(err);
         done();
       });
     });
-  })
+  });
+
+  describe('#create', function() {
+    it('should create a user account given a givenName, surname, email and password', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        assert.equal(obj.givenName, user.givenName);
+        assert.equal(obj.surname, user.surname);
+        assert.equal(obj.email, user.email);
+        done();
+      });
+    });
+
+    it('should return a user object', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        assert.equal(obj.email, user.email);
+        done();
+      });
+    });
+  });
 });
