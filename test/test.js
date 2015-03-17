@@ -232,6 +232,22 @@ describe('Stormpath', function() {
         done();
       });
     });
+
+    it('should create multiple accounts if an array is passed', function(done) {
+      var user2 = {
+        givenName: 'Elon',
+        surname: 'Musk',
+        email: 'emusk@spacex.com',
+        password: 'r0ck3tsRfuN!'
+      };
+
+      User.create([user, user2], function(err, objs) {
+        if (err) return done(err);
+
+        assert.equal(objs.length, 2);
+        done();
+      });
+    });
   });
 
   describe('#save', function() {
@@ -253,6 +269,15 @@ describe('Stormpath', function() {
           done();
         });
       })
+    });
+  });
+
+  describe('#exists', function() {
+    it('should return false if no user exists', function(done) {
+      User.exists('abc123', function(err, exists) {
+        if (err) return done(err);
+        assert.false(exists);
+      });
     });
   });
 });
