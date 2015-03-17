@@ -2,7 +2,16 @@ language: node_js
 node_js:
   - 0.6
   - 0.8
-services:
-  - mongodb
-before_script:
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
+  - 0.10
+  - 0.11
+  - 0.12
+script:
+  - npm test
+branches:
+  only:
+    - develop
+    - master
+env:
+  global:
+  - secure: u6YeJdxdQe5Icy7MhW1UtJSDl9whRvKjxU5RhsUVn0MFZRiItHpwFswFOw4YVSI5JJ0mL9RbQmwGVI82m+ZoKTP1/6KLWYlj8aHIiWzveTfGGD+RVFSawvLiTB+HRjIYI/u9F0NACZJ9+D03KWardG72D+pr/4OXj/iZILdFltE=
+  - secure: YaHp0085YpP5fn0d7MrCxXegpoEyo8ccX2jPERBey1vsM4JTm46xRvoljRH+iF2TW1I82ggCXzOnGtC+lWffLkNLDNcwduRey0+FlPj1KcFxtl0bEgkgBmkWn7D+0UAFi9ZdMNzGXuTvlUXXC4k+qXRyIiCQ99hsdhUKBDOasVQ=
