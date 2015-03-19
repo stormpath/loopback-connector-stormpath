@@ -292,31 +292,28 @@ describe('Stormpath', function() {
     });
   });
 
-  //describe('#findById', function() {
-  //  it('should fail to return a user that doesnt exist', function(done) {
-  //    User.findById('abc123', function(err, obj) {
-  //      assert.equal('hi', 'there');
-  //    //  assert.true(err);
+  describe('#find', function() {
+  //  it('should return no users if no users exist', function(done) {
+  //    User.find({}, function(err, objs) {
+  //      assert.equal(objs.length, 0);
   //      done();
   //    });
   //  });
 
-  //  it('should return a user when given a user id', function(done) {
+  //  it('should return users when users exist', function(done) {
   //    User.create(user, function(err, obj) {
   //      if (err) return done(err);
 
-  //      User.findById(obj.id, function(err, foundUser) {
+  //      User.find({}, function(err, users) {
   //        if (err) return done(err);
 
-  //        assert.equal(foundUser.id, obj.id);
+  //        assert.equal(users.length, 1);
+  //        assert.equal(users[0].id === obj.id);
   //        done();
   //      });
   //    });
   //  });
-  //});
-
-  //describe('#find', function() {
-  //});
+  });
 
   describe('#count', function() {
     it('should return 0 if no accounts exist', function(done) {
