@@ -290,7 +290,9 @@ describe('Stormpath', function() {
     it('should return false if no user exists', function(done) {
       User.exists('abc123', function(err, exists) {
         if (err) return done(err);
-        assert.false(exists);
+
+        assert(!exists);
+        done();
       });
     });
 
@@ -298,9 +300,11 @@ describe('Stormpath', function() {
       User.create(user, function(err, obj) {
         if (err) return done(err);
 
-        User.exists(User, { id: obj.id }, function(err, exists) {
+        User.exists(obj.id, function(err, exists) {
           if (err) return done(err);
-          assert.true(exists);
+
+          assert(exists);
+          done();
         });
       });
     });
