@@ -270,6 +270,20 @@ describe('Stormpath', function() {
         });
       })
     });
+
+    it('should work on newly created objects', function(done) {
+      var u = new User(user);
+
+      u.save(function(err, persistedUser) {
+        if (err) return done(err);
+
+        assert.equal(persistedUser.givenName, u.givenName);
+        assert.equal(persistedUser.surname, u.surname);
+        assert.equal(persistedUser.email, u.email);
+
+        done();
+      });
+    });
   });
 
   describe('#exists', function() {
