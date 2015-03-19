@@ -333,6 +333,35 @@ describe('Stormpath', function() {
   //  });
   });
 
+  describe('#updateOrCreate', function() {
+    it('should successfully update an existing user', function() {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        obj.email = 'john@gmail.com';
+
+        User.updateOrCreate(obj, function(err, updatedUser) {
+          if (err) return done(err);
+
+          assert.equal(updatedUser.email, obj.email);
+          done();
+        });
+      });
+    });
+
+    it('should successfully create a new user', function() {
+      var u = new User(user);
+
+      User.updateOrCreate(u, function(err, updatedUser) {
+        if (err) return done(err);
+
+        assert(updatedUser.id);
+        assert.equal(updatedUser.email, u.email);
+        done();
+      });
+    });
+  });
+
   describe('#count', function() {
     it('should return 0 if no accounts exist', function(done) {
       User.count({}, function(err, count) {
