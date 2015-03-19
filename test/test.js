@@ -292,6 +292,32 @@ describe('Stormpath', function() {
     });
   });
 
+  //describe('#findById', function() {
+  //  it('should fail to return a user that doesnt exist', function(done) {
+  //    User.findById('abc123', function(err, obj) {
+  //      assert.equal('hi', 'there');
+  //    //  assert.true(err);
+  //      done();
+  //    });
+  //  });
+
+  //  it('should return a user when given a user id', function(done) {
+  //    User.create(user, function(err, obj) {
+  //      if (err) return done(err);
+
+  //      User.findById(obj.id, function(err, foundUser) {
+  //        if (err) return done(err);
+
+  //        assert.equal(foundUser.id, obj.id);
+  //        done();
+  //      });
+  //    });
+  //  });
+  //});
+
+  //describe('#find', function() {
+  //});
+
   describe('#count', function() {
     it('should return 0 if no accounts exist', function(done) {
       User.count({}, function(err, count) {
@@ -310,6 +336,30 @@ describe('Stormpath', function() {
           if (err) return done(err);
 
           assert.equal(count, 1);
+          done();
+        });
+      });
+    });
+  });
+
+  describe('#destroyAll', function() {
+    it('should return 0 if no users were deleted', function(done) {
+      User.destroyAll(function(err, deleted) {
+        if (err) return done(err);
+
+        assert.equal(deleted, 0);
+        done();
+      });
+    });
+
+    it('should return 1 if 1 user was deleted', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        User.destroyAll(function(err, deleted) {
+          if (err) return done(err);
+
+          assert.equal(deleted, 1);
           done();
         });
       });
