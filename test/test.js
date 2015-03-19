@@ -334,7 +334,7 @@ describe('Stormpath', function() {
   });
 
   describe('#updateOrCreate', function() {
-    it('should successfully update an existing user', function() {
+    it('should successfully update an existing user', function(done) {
       User.create(user, function(err, obj) {
         if (err) return done(err);
 
@@ -343,13 +343,14 @@ describe('Stormpath', function() {
         User.updateOrCreate(obj, function(err, updatedUser) {
           if (err) return done(err);
 
+          assert.equal(updatedUser.id, obj.id);
           assert.equal(updatedUser.email, obj.email);
           done();
         });
       });
     });
 
-    it('should successfully create a new user', function() {
+    it('should successfully create a new user', function(done) {
       var u = new User(user);
 
       User.updateOrCreate(u, function(err, updatedUser) {
