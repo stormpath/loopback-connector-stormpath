@@ -361,6 +361,19 @@ describe('Stormpath', function() {
         done();
       });
     });
+
+    it('should return an error if no id and email are supplied', function(done) {
+      var u = new User({
+        givenName: user.givenName,
+        surname: user.surname,
+        password: user.password
+      });
+
+      User.updateOrCreate(u, function(err, updatedUser) {
+        assert(err);
+        done();
+      });
+    });
   });
 
   describe('#count', function() {
