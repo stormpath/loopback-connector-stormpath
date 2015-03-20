@@ -379,30 +379,6 @@ describe('Stormpath', function() {
   describe('#all', function() {
   });
 
-  describe('#count', function() {
-    it('should return 0 if no accounts exist', function(done) {
-      User.count({}, function(err, count) {
-        if (err) return done(err);
-
-        assert.equal(count, 0);
-        done();
-      });
-    });
-
-    it('should return the number of accounts that exist', function(done) {
-      User.create(user, function(err, obj) {
-        if (err) return done(err);
-
-        User.count({}, function(err, count) {
-          if (err) return done(err);
-
-          assert.equal(count, 1);
-          done();
-        });
-      });
-    });
-  });
-
   describe('#destroyAll', function() {
     it('should return 0 if no users were deleted', function(done) {
       User.destroyAll(function(err, deleted) {
@@ -421,6 +397,30 @@ describe('Stormpath', function() {
           if (err) return done(err);
 
           assert.equal(deleted, 1);
+          done();
+        });
+      });
+    });
+  });
+
+  describe('#count', function() {
+    it('should return 0 if no accounts exist', function(done) {
+      User.count({}, function(err, count) {
+        if (err) return done(err);
+
+        assert.equal(count, 0);
+        done();
+      });
+    });
+
+    it('should return the number of accounts that exist', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        User.count({}, function(err, count) {
+          if (err) return done(err);
+
+          assert.equal(count, 1);
           done();
         });
       });
