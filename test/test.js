@@ -426,4 +426,7 @@ describe('Stormpath', function() {
       });
     });
   });
+
+  describe('#updateAll', function() {
+  });
 });
