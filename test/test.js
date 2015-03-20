@@ -262,9 +262,9 @@ describe('Stormpath', function() {
         obj.save(function(err, updatedUser) {
           if (err) return done(err);
 
-          assert.equal(updatedUser.givenName, user.givenName);
-          assert.equal(updatedUser.surname, user.surname);
-          assert.equal(updatedUser.email, user.email);
+          assert.equal(updatedUser.givenName, obj.givenName);
+          assert.equal(updatedUser.surname, obj.surname);
+          assert.equal(updatedUser.email, obj.email);
 
           done();
         });
