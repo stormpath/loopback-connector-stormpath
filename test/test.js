@@ -376,6 +376,9 @@ describe('Stormpath', function() {
     });
   });
 
+  describe('#all', function() {
+  });
+
   describe('#count', function() {
     it('should return 0 if no accounts exist', function(done) {
       User.count({}, function(err, count) {
