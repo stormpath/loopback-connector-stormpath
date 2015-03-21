@@ -327,25 +327,25 @@ describe('Stormpath', function() {
   });
 
   describe('#findById', function() {
-    it('should return no user if no users exist', function(done) {
-      User.findById('abc123', function(err, obj) {
-        assert(err);
-        done();
-      });
-    });
+    //it('should return no user if no users exist', function(done) {
+    //  User.findById('abc123', function(err, obj) {
+    //    assert(err);
+    //    done();
+    //  });
+    //});
 
-    it('should return a user if a valid id is specified', function(done) {
-      User.create(user, function(err, obj) {
-        if (err) return done(err);
+    //it('should return a user if a valid id is specified', function(done) {
+    //  User.create(user, function(err, obj) {
+    //    if (err) return done(err);
 
-        User.findById(obj.id, function(err, newObj) {
-          if (err) return done(err);
+    //    User.findById(obj.id, function(err, newObj) {
+    //      if (err) return done(err);
 
-          assert.equal(newObj.id, obj.id);
-          done();
-        });
-      });
-    });
+    //      assert.equal(newObj.id, obj.id);
+    //      done();
+    //    });
+    //  });
+    //});
   });
 
   describe('#updateOrCreate', function() {
