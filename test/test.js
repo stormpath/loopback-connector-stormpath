@@ -392,6 +392,15 @@ describe('Stormpath', function() {
   });
 
   describe('#all', function() {
+    it('should accept just a callback', function(done) {
+      User.all(function(err, users) {
+        if (err) return done(err);
+
+        assert.equal(users.length, 0);
+        done();
+      });
+    });
+
     it('no users exist, no users should be returned', function(done) {
       User.all({}, function(err, users) {
         if (err) return done(err);
