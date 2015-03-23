@@ -554,5 +554,32 @@ describe('Stormpath', function() {
   });
 
   describe('#updateAll', function() {
+    it('should return 0 if no accounts matched', function(done) {
+      User.updateAll({ where: { email: 'randall@stormpath.com' } }, { email: 'r@rdegges.com' }, function(err, updated) {
+        if (err) return done(err);
+
+        assert.equal(updated, 0);
+        done();
+      });
+    });
+
+    it('should return the number of accounts that matched', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        User.updateAll({ where: { email: '*@stormpath.com' } }, { email: 'r@rdegges.com' }, function(err, updated) {
+          if (err) return done(err);
+
+          assert.equal(updated, 1);
+
+          User.all({}, function(err, users) {
+            if (err) return done(err);
+
+            assert.equal(users[0].email, 'r@rdegges.com');
+            done();
+          });
+        });
+      });
+    });
   });
 });
