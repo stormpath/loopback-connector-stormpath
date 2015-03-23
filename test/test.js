@@ -423,6 +423,20 @@ describe('Stormpath', function() {
         });
       });
     });
+
+    it('should expand fields that are included in the include filter', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        User.all({ include: 'customData' }, function(err, users) {
+          if (err) return done(err);
+
+          assert.equal(users.length, 1);
+          assert.equal(typeof users[0].customData, 'object');
+          done();
+        });
+      });
+    });
   });
 
   describe('#destroyAll', function() {
