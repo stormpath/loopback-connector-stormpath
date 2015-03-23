@@ -437,6 +437,28 @@ describe('Stormpath', function() {
         });
       });
     });
+
+    it('should respect the limit filter', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        User.create({
+          givenName: user.givenName,
+          surname: user.surname,
+          email: 'wootoff@gmail.com',
+          password: user.password
+        }, function(err, obj2) {
+          if (err) return done(err);
+
+          User.all({ limit: 1 }, function(err, users) {
+            if (err) return done(err);
+
+            assert.equal(users.length, 1);
+            done();
+          });
+        });
+      });
+    })
   });
 
   describe('#destroyAll', function() {
