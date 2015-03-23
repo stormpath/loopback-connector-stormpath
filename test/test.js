@@ -410,15 +410,15 @@ describe('Stormpath', function() {
       });
     });
 
-    it('should return a single user when a valid id is specified', function(done) {
+    it('should return a single user when a valid email is specified', function(done) {
       User.create(user, function(err, obj) {
         if (err) return done(err);
 
-        User.all({ where: { id: obj.id } }, function(err, users) {
+        User.all({ where: { email: obj.email } }, function(err, users) {
           if (err) return done(err);
 
           assert.equal(users.length, 1);
-          assert.equal(users[0].id, obj.id);
+          assert.equal(users[0].email, obj.email);
           done();
         });
       });
