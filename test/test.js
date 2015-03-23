@@ -401,7 +401,7 @@ describe('Stormpath', function() {
       });
     });
 
-    it('no users exist, no users should be returned', function(done) {
+    it('should return no users if no users exist', function(done) {
       User.all({}, function(err, users) {
         if (err) return done(err);
 
