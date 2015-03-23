@@ -409,6 +409,20 @@ describe('Stormpath', function() {
         done();
       });
     });
+
+    it('should return a single user when a valid id is specified', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        User.all({ where: { id: obj.id } }, function(err, users) {
+          if (err) return done(err);
+
+          assert.equal(users.length, 1);
+          assert.equal(users[0].id, obj.id);
+          done();
+        });
+      });
+    });
   });
 
   describe('#destroyAll', function() {
