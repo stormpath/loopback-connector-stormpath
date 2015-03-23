@@ -483,6 +483,28 @@ describe('Stormpath', function() {
         });
       });
     });
+
+    it('should respect the where clause', function(done) {
+      User.create(user, function(err, obj) {
+        if (err) return done(err);
+
+        User.create({
+          givenName: user.givenName,
+          surname: user.surname,
+          email: 'wootoff@gmail.com',
+          password: user.password
+        }, function(err, obj2) {
+          if (err) return done(err);
+
+          User.destroyAll({ where: { email: 'wootoff@gmail.com' } }, function(err, deleted) {
+            if (err) return done(err);
+
+            assert.equal(deleted, 1);
+            done();
+          });
+        });
+      });
+    });
   });
 
   describe('#count', function() {
