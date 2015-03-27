@@ -29,3 +29,8 @@ All library changes, in descending order.
 **Released on March 27, 2015.**
 
 - First release ever!  Still some lacking features, but we'll ship it anyway!
+
+
+  [loopback-stormpath]: https://github.com/stormpath/loopback-stormpath "loopback-stormpath on Github"
+  [Stormpath]: https://stormpath.com/ "Stormpath User Management"
+  [Loopback]: http://loopback.io/ "Loopback Node.js Web Framework"
