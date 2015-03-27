@@ -1,51 +1,31 @@
-## loopback-connector-mongodb
+# loopback-connector-stormpath
 
-MongoDB connector for loopback-datasource-juggler.
+[![NPM Version](https://img.shields.io/npm/v/loopback-connector-stormpath.svg?style=flat)](https://npmjs.org/package/loopback-connector-stormpath)
+[![NPM Downloads](http://img.shields.io/npm/dm/loopback-connector-stormpath.svg?style=flat)](https://npmjs.org/package/loopback-connector-stormpath)
+[![Build Status](https://img.shields.io/travis/stormpath/loopback-connector-stormpath.svg?style=flat)](https://travis-ci.org/stormpath/loopback-connector-stormpath)
 
-Please see the full documentation at [docs.strongloop.com](http://docs.strongloop.com/display/LB/MongoDB+connector).
+*The Stormpath connector for Loopback.*
 
-## Customizing MongoDB configuration for tests/examples
 
-By default, examples and tests from this module assume there is a MongoDB server
-instance running on localhost at port 27017.
+**NOTE**: This package is *not* meant to be used alone.  Please see our
+[loopback-stormpath][] repository if you'd like to use [Stormpath][] in your
+[Loopback][] project!
 
-To customize the settings, you can drop in a `.loopbackrc` file to the root directory
-of the project or the home folder.
 
-**Note**: Tests and examples in this project configure the data source using the deprecated '.loopbackrc' file method, 
-which is not suppored in general.
-For information on configuring the connector in a LoopBack application, please refer to [LoopBack documentation](http://docs.strongloop.com/display/LB/MongoDB+connector).
+## Purpose
 
-The .loopbackrc file is in JSON format, for example:
+This library is meant to provide an interface between Loopback and Stormpath --
+this implementation basically provides an *"ORM"* around the Stormpath data
+store for users.
 
-    {
-        "dev": {
-            "mongodb": {
-                "host": "127.0.0.1",
-                "database": "test",
-                "username": "youruser",
-                "password": "yourpass",
-                "port": 27017
-            }
-        },
-        "test": {
-            "mongodb": {
-                "host": "127.0.0.1",
-                "database": "test",
-                "username": "youruser",
-                "password": "yourpass",
-                "port": 27017
-            }
-        }
-    }
 
-**Note**: username/password is only required if the MongoDB server has
-authentication enabled.
+## Changelog
 
-## Running tests
+All library changes, in descending order.
 
-    npm test
 
-## Release notes
+### Version 0.0.1
 
-  * 1.1.7 - Do not return MongoDB-specific _id to client API, except if specifically specified in the model definition
+**Released on March 27, 2015.**
+
+- First release ever!  Still some lacking features, but we'll ship it anyway!
