@@ -14,6 +14,10 @@ var uuid = require('uuid');
 //
 //  - STORMPATH_API_KEY_ID
 //  - STORMPATH_API_KEY_SECRET
+if (!process.env.STORMPATH_API_KEY_ID || !process.env.STORMPATH_API_KEY_SECRET) {
+  throw new Error('ERROR: Missing environment variables STORMPATH_API_KEY_ID and STORMPATH_API_KEY_SECRET.');
+}
+
 var config = {
   apiKeyId: process.env.STORMPATH_API_KEY_ID,
   apiKeySecret: process.env.STORMPATH_API_KEY_SECRET,
