@@ -14,7 +14,6 @@ var uuid = require('uuid');
 //
 //  - STORMPATH_API_KEY_ID
 //  - STORMPATH_API_KEY_SECRET
-//  - STORMPATH_APPLICATION_HREF
 var config = {
   apiKeyId: process.env.STORMPATH_API_KEY_ID,
   apiKeySecret: process.env.STORMPATH_API_KEY_SECRET,
