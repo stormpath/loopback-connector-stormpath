@@ -22,7 +22,7 @@
   "repository": "stormpath/loopback-connector-stormpath",
   "devDependencies": {
     "loopback": "^2.14.0",
-    "mocha": "^2.3.3",
+    "mocha": "^2.5.2",
     "uuid": "^2.0.1"
   }
 }
