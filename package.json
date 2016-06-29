@@ -16,7 +16,7 @@
   "dependencies": {
     "async": "^1.4.2",
     "debug": "^2.1.1",
-    "loopback-connector": "1.x",
+    "loopback-connector": "2.4.0",
     "stormpath": "^0.9.2"
   },
   "repository": "stormpath/loopback-connector-stormpath",
